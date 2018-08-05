@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html{
+            /*height: 2000px;*/
+            outline: 1px dashed #0f0;
+        }
+        body{
+            /*height: 2000px;*/
+        /*不加高为182px*/
+            outline: 1px dashed #00f;
+        }
+        #div1{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #f00;
+            padding: 20px;
+            margin: 20px;//这里就是问题的所在，因为会存在margin-top向上传递
+        }
+        #div2{
+            width: 100px;
+            height: 200px;
+            background: #0ff;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <div id="div2"></div>
+</div>
+<script>
+    // console.log(document.documentElement.clientWidth);
+    // console.log(document.documentElement.clientHeight);
+    document.onclick=function () {
+        // alert(document.documentElement.scrollTop);
+        alert(document.documentElement.offsetHeight);
+    }
+</script>
+</body>
+</html>
