@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //alert(event); //chrome为undefined，ff直接报错，IE10以下为null，IE11为undefined
+    document.onclick=function (ev) {
+        var evv=ev||event;   //兼容了IE8以下
+        console.log(evv);  //ff还是会报错 不加参数
+    }
+</script>
+</body>
+</html>

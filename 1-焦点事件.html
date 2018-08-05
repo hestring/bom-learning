@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{
+            border: none;
+            border-bottom: 1px solid #0000ff;
+            padding: 0;
+            width: 100px;
+            height: 30px;
+            /*border-radius: 10px;*/
+        }
+    </style>
+</head>
+<body>
+<input type="text">
+<input type="text">
+<input type="button" value="BUTTON">
+<textarea></textarea>
+<script>
+    var aInp=document.getElementsByTagName('input');
+    aInp[0].onfocus=function () {
+        this.style.outline='3px dashed #00f';
+    };
+    aInp[0].onblur=function () {
+        this.style.outline='none';
+    };
+    aInp[1].focus();
+    aInp[2].onclick=function () {
+        aInp[1].select();
+    }
+</script>
+</body>
+</html>

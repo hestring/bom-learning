@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p{
+            margin: 0;
+        }
+        #div{
+            width: 100px;
+            height: 200px;
+            background: #f00;
+            display: none;
+        }
+        p{
+            height: 50px;
+            font: 30px/50px "Courier New";
+            background: #eee;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+<button>下拉菜单</button>
+<div id="div"></div>
+<p>0000000000001</p>
+<p>0000000000002</p>
+<p>0000000000003</p>
+<p>0000000000004</p>
+<script>
+    var oBtn=document.getElementsByTagName('button')[0];
+    var oDiv=document.getElementById('div');
+    oBtn.onclick=function (ev) {
+        ev=ev||event;
+        oDiv.style.display='block';
+        ev.cancelBubble=true;
+    };
+    document.onclick=function () {
+        /*setTimeout(function () {
+            oDiv.style.display='none';
+        },1000);*/
+        oDiv.style.display='none';
+
+    }
+</script>
+</body>
+</html>
