@@ -35,6 +35,7 @@
         ev=ev||event;
         oDiv.style.display='block';
         ev.cancelBubble=true;
+        // ev.stopPropagation(); 在标准浏览器中，不支持IE
     };
     document.onclick=function () {
         /*setTimeout(function () {
