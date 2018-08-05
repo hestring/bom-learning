@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="button" value="关闭">
+<input type="button" value="打开新窗口">
+<input type="button" value="关闭新窗口">
+<script>
+    var aBtn=document.getElementsByTagName('input');
+    var newWindow=null;
+    aBtn[0].onclick=function () {
+        window.close();
+    };
+    aBtn[1].onclick=function () {
+        /*open(页面的地址url，打开的方式) 方法 打开一个新的窗口(页面)
+        如果 url 为空，则默认打开一个空白页面
+        如果打开方式为空，默认为新窗口方式打开
+
+        返回值：返回新打开的窗口的 window 对象*/
+        newWindow=window.open();
+    };
+    aBtn[2].onclick=function () {
+        newWindow.close();
+    }
+</script>
+</body>
+</html>
