@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>BTN1</button>
+<button>BTN2</button>
+<script>
+    var aBtn=document.getElementsByTagName('button');
+
+    aBtn[0].setCapture();
+    aBtn[0].onclick=function () {
+        alert(1);
+    };
+    aBtn[1].onclick=function () {
+        alert(2);
+    }
+</script>
+</body>
+</html>
