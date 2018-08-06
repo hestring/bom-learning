@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height: 2000px;
+        }
+        #div{
+            width: 100px;
+            height: 200px;
+            background: #f00;
+            position: absolute;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="div"></div>
+<script>
+    var oDiv=document.getElementById('div');
+    document.onkeydown=function (ev) {
+        // return false;
+        ev.preventDefault();
+    };
+    document.oncontextmenu=function (ev) {
+        ev=ev||event;
+        oDiv.style.display='block';
+        oDiv.style.left=ev.clientX+'px';
+        oDiv.style.top=ev.clientY+'px';
+        return false;
+    };
+    document.onclick=function () {
+        oDiv.style.display='none';
+        //前面的方法好，比较灵活，因为你用return false必须放在函数的最后，而且函数还不能有其它的return语句。在写代码的时候，往往一个函数有很多功能， 时不时就要return什么什么的。所以这个时候就不大适合用return false了。
+    }
+</script>
+</body>
+</html>

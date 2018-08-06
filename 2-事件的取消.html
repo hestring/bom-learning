@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function fn1() {
+        alert(1);
+    }
+    function fn2() {
+        alert(2);
+    }
+    if (document.attachEvent){
+        document.attachEvent('onclick',fn1);  //IE10以下
+        document.attachEvent('onclick',fn2);
+        document.detachEvent('onclick',fn1);  //取消
+    } else{
+        document.addEventListener('click',fn1,false);
+        document.addEventListener('click',fn1,true);
+        document.addEventListener('click',fn2,false);
+
+        document.removeEventListener('click',fn2,false);
+    }
+
+
+
+</script>
+</body>
+</html>
