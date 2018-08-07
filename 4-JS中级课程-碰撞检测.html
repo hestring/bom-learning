@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: #000;
+            position: absolute;
+        }
+        #test{
+            background: #0f0;
+            top: 300px;
+            left: 500px;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var oDiv=document.getElementById('div');
+            var oTest=document.getElementById('test');
+
+            oDiv.onmousedown=function (ev) {
+                ev=ev||event;
+                var disX=ev.clientX-this.offsetLeft;
+                var disY=ev.clientY-this.offsetTop;
+                document.onmousemove=function (ev) {
+                    ev=ev||event;
+                    var L=ev.clientX-disX;
+                    var T=ev.clientY-disY;
+                    var L1=L;
+                    var R1=L+oDiv.offsetWidth;
+                    var T1=T;
+                    var B1=T+oDiv.offsetHeight;
+                    var L2=oTest.offsetLeft;
+                    var R2=L2+oTest.offsetWidth;
+                    var T2=oTest.offsetTop;
+                    var B2=T2+oTest.offsetHeight;
+                    if (R1<L2||L1>R2||B1<T2||T1>B2){
+                        oTest.style.background='#0f0';
+                    } else{
+                        oTest.style.background='#f00';
+                    }
+                    oDiv.style.left=L+'px';
+                    oDiv.style.top=T+'px';
+                };
+                document.onmouseup=function () {
+                    document.onmousemove=null;
+                };
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="div"></div>
+<div id="test"></div>
+</body>
+</html>
