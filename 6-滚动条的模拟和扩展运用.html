@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div{
+            width: 50px;
+            height: 500px;
+            background: #f1f1f1;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        #scroll{
+            width: 50px;
+            height: 50px;
+            background: #c1c1c1;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        img {
+            vertical-align: top;
+            border: 1px solid #000;
+            position: absolute;
+            left: 100px;
+            height: 0;
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            var oDiv=document.getElementById('div');
+            var oScroll=document.getElementById('scroll');
+            var maxT=oDiv.clientHeight-oScroll.offsetHeight;
+            var oImg=document.getElementsByTagName('img')[0];
+            oScroll.onmousedown=function (ev) {
+                ev=ev||event;
+                // var disX=ev.clientX-this.offsetLeft;
+                var disY=ev.clientY-this.offsetTop;
+                document.onmousemove=function (ev) {
+                    ev=ev||event;
+                    var T=ev.clientY-disY;
+                    if(T>maxT){
+                        T=maxT;
+                    }
+                    if(T<0){
+                        T=0;
+                    }
+                    var scale=T/maxT;
+                    oImg.style.height=scale*500+'px';
+                    oScroll.style.top=T+'px';
+                };
+                document.onmouseup=function () {
+                    document.onmousemove=null;
+                };
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="div">
+    <div id="scroll"></div>
+</div>
+<img src="img/001.jpeg" alt="">
+</body>
+</html>
