@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   /* var myDate=new Date();
+    myDate.setDate(myDate.getDate()+5);
+    document.cookie='username=leo\n你好; expires='+myDate.toUTCString();*/
+    function setCookie(key,value,t) {
+        var oDate=new Date();
+        oDate.setDate(oDate.getDate()+t);
+        document.cookie=key+'='+encodeURI(value)+'; expires='+oDate.toUTCString();
+    }
+    function getCookie(key) {
+        var arr1=document.cookie.split('; ');
+        for (var  i=0;i<arr1.length;i++){
+            var arr2=arr1[i].split('=');
+            if(arr2[0]===key){
+                return decodeURI(arr2[1]);
+            }
+        }
+    }
+    function removeCookie(key) {
+        setCookie(key,'',-1);
+    }
+    setCookie('name','hello\n好的',30);
+    setCookie('age',20,30);
+    setCookie('sex','男',30);
+    alert(getCookie('name'));
+    removeCookie('sex');
+    alert(document.cookie);
+</script>
+</body>
+</html>

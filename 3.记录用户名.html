@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label for="username">用户名：</label>
+<input type="text" id="username">
+<input type="button" value="登陆">
+<input type="button" value="退出">
+<script src="cookie.js"></script>
+<script>
+    var aInp=document.getElementsByTagName('input');
+    if (!aInp[0].value&&getCookie('username')){
+        aInp[0].value=getCookie('username');
+    }
+    aInp[1].onclick=function(){
+        setCookie('username',aInp[0].value,3);
+        alert('登陆成功');
+    };
+    aInp[2].onclick=function () {
+        aInp[0].value='';
+        removeCookie('username');
+        alert('退出成功');
+    }
+</script>
+</body>
+</html>
